@@ -9,10 +9,10 @@ class Ludo:
     def __init__(self, root,six_side_block,five_side_block,four_side_block,three_side_block,two_side_block,one_side_block):
         self.window = root
         # Make canvas
-        self.make_canvas = Canvas(self.window, bg="#4d4dff", width=800, height=630)
+        self.make_canvas = Canvas(self.window, bg="brown", width=800, height=630)
         self.make_canvas.pack(fill=BOTH,expand=1)
 
-        # Make some containers to store data
+        # some containers to store data
         self.made_red_coin = []
         self.made_green_coin = []
         self.made_yellow_coin = []
@@ -196,13 +196,13 @@ class Ludo:
 
 
         # Traingle in middle
-        self.make_canvas.create_polygon(100+240, 15+240, 100+240+60, 15+240+60, 100+240, 15+240+(40*3), width=3,fill="red",outline="black")
-        self.make_canvas.create_polygon(100 + 240+(40*3), 15 + 240, 100 + 240 + 60, 15 + 240 + 60, 100 + 240+(40*3), 15 + 240 + (40 * 3), width=3, fill="yellow",outline="black")
-        self.make_canvas.create_polygon(100 + 240, 15 + 240, 100 + 240 + 60, 15 + 240 + 60, 100 + 240 + (40 * 3), 15 + 240, width=3, fill="#00FF00",outline="black")
-        self.make_canvas.create_polygon(100 + 240, 15 + 240+(40*3), 100 + 240 + 60, 15 + 240 + 60, 100 + 240 + (40 * 3), 15 + 240+(40*3), width=3, fill="#04d9ff",outline="black")
+        self.make_canvas.create_polygon(100+240, 15+240, 100+240+60, 15+240+60, 100+240, 15+240+(40*3), width=4,fill="red",outline="black")
+        self.make_canvas.create_polygon(100 + 240+(40*3), 15 + 240, 100 + 240 + 60, 15 + 240 + 60, 100 + 240+(40*3), 15 + 240 + (40 * 3), width=4, fill="yellow",outline="black")
+        self.make_canvas.create_polygon(100 + 240, 15 + 240, 100 + 240 + 60, 15 + 240 + 60, 100 + 240 + (40 * 3), 15 + 240, width=4, fill="#00FF00",outline="black")
+        self.make_canvas.create_polygon(100 + 240, 15 + 240+(40*3), 100 + 240 + 60, 15 + 240 + 60, 100 + 240 + (40 * 3), 15 + 240+(40*3), width=4, fill="#04d9ff",outline="black")
 
 
-        # Make coin for red left up block
+        # Making coin for red left up block
         red_1_coin = self.make_canvas.create_oval(100+40, 15+40, 100+40+40, 15+40+40, width=3, fill="red", outline="black")
         red_2_coin = self.make_canvas.create_oval(100+40+60+60, 15 + 40, 100+40+60+60+40, 15 + 40 + 40, width=3, fill="red", outline="black")
         red_3_coin = self.make_canvas.create_oval(100 + 40 + 60 + 60, 15 + 40 + 100, 100 + 40 + 60 + 60 + 40, 15 + 40 + 40 + 100, width=3, fill="red", outline="black")
@@ -261,13 +261,13 @@ class Ludo:
         self.made_sky_blue_coin.append(sky_blue_4_coin)
 
         # Make coin under number label for sky_blue left down block
-        sky_blue_1_label = Label(self.make_canvas, text="1", font=("Arial", 15, "bold"), bg="#04d9ff", fg="black")
+        sky_blue_1_label = Label(self.make_canvas, text="1", font=("courier", 15, "bold"), bg="#04d9ff", fg="black")
         sky_blue_1_label.place(x=100 + 40 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 10)
-        sky_blue_2_label = Label(self.make_canvas, text="2", font=("Arial", 15, "bold"), bg="#04d9ff", fg="black")
+        sky_blue_2_label = Label(self.make_canvas, text="2", font=("courier", 15, "bold"), bg="#04d9ff", fg="black")
         sky_blue_2_label.place(x=100 + 40 + 60 + 60 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 10)
-        sky_blue_3_label = Label(self.make_canvas, text="3", font=("Arial", 15, "bold"), bg="#04d9ff", fg="black")
+        sky_blue_3_label = Label(self.make_canvas, text="3", font=("courier", 15, "bold"), bg="#04d9ff", fg="black")
         sky_blue_3_label.place(x=100 + 40 + 60 + 60 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 60 + 40 + 10)
-        sky_blue_4_label = Label(self.make_canvas, text="4", font=("Arial", 15, "bold"), bg="#04d9ff", fg="black")
+        sky_blue_4_label = Label(self.make_canvas, text="4", font=("courier", 15, "bold"), bg="#04d9ff", fg="black")
         sky_blue_4_label.place(x=100 + 40 + 10, y=30 + (40 * 6) + (40 * 3) + 40 + 60 + 40 + 10)
         self.sky_blue_number_label.append(sky_blue_1_label)
         self.sky_blue_number_label.append(sky_blue_2_label)
@@ -298,7 +298,7 @@ class Ludo:
         self.yellow_number_label.append(yellow_3_label)
         self.yellow_number_label.append(yellow_4_label)
 
-        # Make star safe zone
+        # Make star safe zone, the Safe Zone on the board
         """
                                               A
                                            L  *  B
@@ -315,28 +315,28 @@ class Ludo:
         common_y = 15+240+2
         #              A                     B                        C                         D                        E                              F                    G                                  H                        I                            J                            K                         L
         coord = [common_x,common_y,  common_x+5,common_y+15,  common_x+15,common_y+15,  common_x+8,common_y+20,    common_x+15,common_y+25,    common_x+5,common_y+25,    common_x,common_y+25+10,   common_x-5,common_y+25,   common_x-16,common_y+25,   common_x-8,common_y+15+5,   common_x-15,common_y+15,   common_x-5,common_y+15]
-        self.make_canvas.create_polygon(coord,width=3,fill="blue")
+        self.make_canvas.create_polygon(coord,width=3,fill="black")
 
         # Up star
         common_x = 100+240+2+18
         common_y = 15 + (40*2) + 2
         #              A                              B                                   C                             D                                E                                        F                       G                                          H                               I                            J                                      K                                   L
         coord = [common_x, common_y,   common_x + 5,   common_y + 15,      common_x + 15, common_y + 15,      common_x + 8, common_y + 20,     common_x + 15, common_y + 25,       common_x + 5, common_y + 25,      common_x, common_y + 25 + 10,    common_x - 5, common_y + 25,     common_x - 16, common_y + 25,     common_x - 8,common_y + 15 + 5,     common_x - 15,common_y + 15,     common_x - 5,common_y + 15]
-        self.make_canvas.create_polygon(coord, width=3, fill="blue")
+        self.make_canvas.create_polygon(coord, width=3, fill="black")
 
         # Left star
         common_x = 100 + (40*2) + 2 +18
         common_y = 15 + 240+(40*2) + 2
         #                  A                     B                                   C                            D                                 E                                F                           G                                  H                                    I                                 J                                    K                                L
         coord = [common_x, common_y,   common_x + 5, common_y + 15,    common_x + 15, common_y + 15,    common_x + 8,common_y + 20,    common_x + 15, common_y + 25,    common_x + 5, common_y + 25,    common_x, common_y + 25 + 10,    common_x - 5, common_y + 25,      common_x - 16, common_y + 25,     common_x - 8, common_y + 15 + 5,     common_x - 15, common_y + 15,     common_x - 5, common_y + 15]
-        self.make_canvas.create_polygon(coord, width=3, fill="blue")
+        self.make_canvas.create_polygon(coord, width=3, fill="black")
 
         # Down star
         common_x = 100 + 240 + (40*2) + 2 + 18
         common_y = 15 + (40 * 6) + (40*3)+(40*3)+2
         #              A                         B                             C                                       D                        E                                       F                                   G                                     H                                  I                                  J                                  K                                  L
         coord = [common_x, common_y,   common_x + 5, common_y + 15,    common_x + 15, common_y + 15,    common_x + 8, common_y + 20,    common_x + 15, common_y + 25,      common_x + 5, common_y + 25,       common_x, common_y + 25 + 10,        common_x - 5, common_y + 25,       common_x - 16, common_y + 25,       common_x - 8, common_y + 15 + 5,      common_x - 15, common_y + 15,      common_x - 5, common_y + 15]
-        self.make_canvas.create_polygon(coord, width=3, fill="blue")
+        self.make_canvas.create_polygon(coord, width=3, fill="black")
 
 
     # Total number of players: Control take at first
@@ -349,12 +349,12 @@ class Ludo:
         top.geometry("600x150")
         top.maxsize(600,150)
         top.minsize(600,150)
-        top.config(bg="orange")
+        top.config(bg="#4682B4")
         top.iconbitmap("Images/ludo_icon.ico")
 
-        head = Label(top,text="-:Total number of players:- ",font=("Arial",25,"bold","italic"),bg="orange",fg="chocolate")
+        head = Label(top,text="NUMBER OF P L A Y E R S",font=("jokerman",24,"bold"),bg="#4682B4",fg="white")
         head.place(x=70,y=30)
-        take_entry = Entry(top,font=("Arial",18,"bold","italic"),relief=SUNKEN,bd=7,width=12)
+        take_entry = Entry(top,font=("courier",16,"bold"),relief=SUNKEN,bd=7,width=12)
         take_entry.place(x=150,y=80)
         take_entry.focus()
 
@@ -367,9 +367,9 @@ class Ludo:
                 self.make_command()
                 top.destroy()
             else:
-                messagebox.showerror("Input Error", "Please input number of players between 2 and 4")
+                messagebox.showerror("Please Enter Players Between 2 to 4. ")
 
-        submit_btn = Button(top,text="Submit",bg="black",fg="#00FF00",font=("Arial",13,"bold"),relief=RAISED,bd=8,command=filtering)
+        submit_btn = Button(top,text="P L A Y",bg="black",fg="#00FF00",font=("curlz MT",13,"bold"),relief=RAISED,bd=8,command=filtering)
         submit_btn.place(x=350,y=80)
         top.mainloop()
 
@@ -503,53 +503,53 @@ class Ludo:
         self.time_for+=1
         self.block_value_predict[self.total_people_play[self.time_for]][1]['state'] = NORMAL
 
-
+    #buttons for giving instructions
     def instruction_btn_red(self):
         block_predict_red = Label(self.make_canvas,image=self.block_number_side[0])
         block_predict_red.place(x=45,y=15)
-        predict_red = Button(self.make_canvas, bg="black", fg="#00FF00", relief=RAISED, bd=5, text="Predict", font=("Arial", 8, "bold"), command=lambda: self.make_prediction("red"))
+        predict_red = Button(self.make_canvas, bg="red", fg="black", relief=RAISED, bd=5, text="R O L L", font=("Arial", 8, "bold"), command=lambda: self.make_prediction("red"))
         predict_red.place(x=37, y=15 + 40)
         entry_take_red = Entry(self.make_canvas,bg="white",fg="blue",font=("Arial",25,"bold","italic"),width=2,relief=SUNKEN,bd=5)
         entry_take_red.place(x=40,y=15+80)
-        final_move = Button(self.make_canvas,bg="black",fg="#00FF00",relief=RAISED,bd=5,text="Give",font=("Arial",8,"bold"),command=lambda: self.main_controller("red",entry_take_red.get()),state=DISABLED)
+        final_move = Button(self.make_canvas,bg="red",fg="black",relief=RAISED,bd=5,text="M O V E",font=("Arial",8,"bold"),command=lambda: self.main_controller("red",entry_take_red.get()),state=DISABLED)
         final_move.place(x=42,y=15+140)
-        Label(self.make_canvas,text="Player 1",bg="#4d4dff",fg="gold",font=("Arial",15,"bold")).place(x=15,y=15+140+40)
+        Label(self.make_canvas,text="Player 1",bg="black",fg="white",font=("signal",15,"bold")).place(x=15,y=15+140+40)
         self.store_instructional_btn(block_predict_red,predict_red,entry_take_red,final_move)
 
     def instruction_btn_sky_blue(self):
         block_predict_sky_blue = Label(self.make_canvas, image=self.block_number_side[0])
         block_predict_sky_blue.place(x=45, y=15+(40*6+40*3)+10)
-        predict_sky_blue = Button(self.make_canvas, bg="black", fg="#00FF00", relief=RAISED, bd=5, text="Predict",font=("Arial", 8, "bold"), command=lambda: self.make_prediction("sky_blue"))
+        predict_sky_blue = Button(self.make_canvas, bg="#04d9ff", fg="black", relief=RAISED, bd=5, text="R O L L",font=("Arial", 8, "bold"), command=lambda: self.make_prediction("sky_blue"))
         predict_sky_blue.place(x=37, y=15+(40*6+40*3)+40 + 10)
         entry_take_sky_blue = Entry(self.make_canvas, bg="white", fg="blue", font=("Arial", 25, "bold", "italic"), width=2,relief=SUNKEN, bd=5)
         entry_take_sky_blue.place(x=40, y=15+(40*6+40*3)+40 + 50)
-        final_move = Button(self.make_canvas, bg="black", fg="#00FF00", relief=RAISED, bd=5, text="Give", font=("Arial", 8, "bold"),command=lambda: self.main_controller("sky_blue",entry_take_sky_blue.get()),state=DISABLED)
+        final_move = Button(self.make_canvas, bg="#04d9ff", fg="black", relief=RAISED, bd=5, text="M O V E", font=("Arial", 8, "bold"),command=lambda: self.main_controller("sky_blue",entry_take_sky_blue.get()),state=DISABLED)
         final_move.place(x=42, y=15+(40*6+40*3)+40 + 110)
-        Label(self.make_canvas, text="Player 2", bg="#4d4dff", fg="gold", font=("Arial", 15, "bold")).place(x=15,y=15+(40*6+40*3)+40 + 110+ 40)
+        Label(self.make_canvas, text="Player 2", bg="black", fg="white", font=("signal", 15, "bold")).place(x=15,y=15+(40*6+40*3)+40 + 110+ 40)
         self.store_instructional_btn(block_predict_sky_blue, predict_sky_blue, entry_take_sky_blue, final_move)
 
     def instruction_btn_yellow(self):
         block_predict_yellow = Label(self.make_canvas, image=self.block_number_side[0])
         block_predict_yellow.place(x=100 + (40 * 6 + 40 * 3 + 40 * 6 + 10)+10, y=15 + (40 * 6 + 40 * 3) + 10)
-        predict_yellow = Button(self.make_canvas, bg="black", fg="#00FF00", relief=RAISED, bd=5, text="Predict",font=("Arial", 8, "bold"), command=lambda: self.make_prediction("yellow"))
+        predict_yellow = Button(self.make_canvas, bg="yellow", fg="black", relief=RAISED, bd=5, text="R O L L",font=("Arial", 8, "bold"), command=lambda: self.make_prediction("yellow"))
         predict_yellow.place(x=100 + (40 * 6 + 40 * 3 + 40 * 6 + 2)+10, y=15 + (40 * 6 + 40 * 3) + 40 + 10)
         entry_take_yellow = Entry(self.make_canvas, bg="white", fg="blue", font=("Arial", 25, "bold", "italic"),width=2, relief=SUNKEN, bd=5)
         entry_take_yellow.place(x=100 + (40 * 6 + 40 * 3 + 40 * 6 + 2)+13, y=15 + (40 * 6 + 40 * 3) + 40 + 50)
-        final_move = Button(self.make_canvas, bg="black", fg="#00FF00", relief=RAISED, bd=5, text="Give",font=("Arial", 8, "bold"),command=lambda: self.main_controller("yellow",entry_take_yellow.get()),state=DISABLED)
+        final_move = Button(self.make_canvas, bg="yellow", fg="black", relief=RAISED, bd=5, text="M O V E",font=("Arial", 8, "bold"),command=lambda: self.main_controller("yellow",entry_take_yellow.get()),state=DISABLED)
         final_move.place(x=100 + (40 * 6 + 40 * 3 + 40 * 6 + 2)+17, y=15 + (40 * 6 + 40 * 3) + 40 + 110)
-        Label(self.make_canvas, text="Player 3", bg="#4d4dff", fg="gold", font=("Arial", 15, "bold")).place(x=100 + (40 * 6 + 40 * 3 + 40 * 6 + 3),y=15 + (40 * 6 + 40 * 3) + 40 + 110 + 40)
+        Label(self.make_canvas, text="Player 3", bg="black", fg="white", font=("signal", 15, "bold")).place(x=100 + (40 * 6 + 40 * 3 + 40 * 6 + 3),y=15 + (40 * 6 + 40 * 3) + 40 + 110 + 40)
         self.store_instructional_btn(block_predict_yellow, predict_yellow, entry_take_yellow, final_move)
 
     def instruction_btn_green(self):
         block_predict_green = Label(self.make_canvas, image=self.block_number_side[0])
         block_predict_green.place(x=100+(40*6+40*3+40*6+10)+10, y=15)
-        predict_green = Button(self.make_canvas, bg="black", fg="#00FF00", relief=RAISED, bd=5, text="Predict", font=("Arial", 8, "bold"), command=lambda: self.make_prediction("green"))
+        predict_green = Button(self.make_canvas, bg="#00FF00", fg="black", relief=RAISED, bd=5, text="R O L L", font=("Arial", 8, "bold"), command=lambda: self.make_prediction("green"))
         predict_green.place(x=100+(40*6+40*3+40*6+2)+10, y=15 + 40)
         entry_take_green = Entry(self.make_canvas, bg="white", fg="blue", font=("Arial", 25, "bold", "italic"), width=2, relief=SUNKEN, bd=5)
         entry_take_green.place(x=100+(40*6+40*3+40*6+2)+13, y=15 + 80)
-        final_move = Button(self.make_canvas, bg="black", fg="#00FF00", relief=RAISED, bd=5, text="Give",font=("Arial", 8, "bold"),command=lambda: self.main_controller("green",entry_take_green.get()),state=DISABLED)
+        final_move = Button(self.make_canvas, bg="#00FF00", fg="black", relief=RAISED, bd=5, text="M O V E",font=("Arial", 8, "bold"),command=lambda: self.main_controller("green",entry_take_green.get()),state=DISABLED)
         final_move.place(x=100+(40*6+40*3+40*6+2)+17, y=15 + 140)
-        Label(self.make_canvas, text="Player 4", bg="#4d4dff", fg="gold", font=("Arial", 15, "bold")).place(x=100+(40*6+40*3+40*6+3), y=15 + 140+40)
+        Label(self.make_canvas, text="Player 4", bg="black", fg="white", font=("signal", 15, "bold")).place(x=100+(40*6+40*3+40*6+3), y=15 + 140+40)
         self.store_instructional_btn(block_predict_green, predict_green, entry_take_green, final_move)
 
 
@@ -631,7 +631,7 @@ class Ludo:
         if processing_result is True:
             pass
         else:
-            messagebox.showerror("Wrong input number","Please input the coin number between 1 to 4")
+            messagebox.showerror("Error Detected","Enter a Valid Pointer from 1 to 4")
             return
 
         if  color_coin == "red":
